@@ -26,8 +26,6 @@ class CustomCard extends StatefulWidget {
   final VoidCallback? onPlus; // Действие при нажатии на плюс
   final VoidCallback? onMinus; // Действие при нажатии на минус
   final double paddingCard; // Внутренние отступы
-  final Color colorButton1; // Цвет первой кнопки
-  final Color colorButton2; // Цвет второй кнопки
 
   const CustomCard({
     super.key,
@@ -47,8 +45,6 @@ class CustomCard extends StatefulWidget {
     this.day,
     this.secondaryText,
     this.secondaryPressed,
-    required this.colorButton1,
-    required this.colorButton2,
   });
 
   @override
@@ -90,7 +86,7 @@ class _CustomCardState extends State<CustomCard> {
                   _inCart
                       ? CustomButton(
                           type: ButtonType.secondary,
-                          background: widget.colorButton1,
+
                           widthButton: 115,
                           heightButton: 40,
                           borderRadius: 10,
@@ -107,7 +103,7 @@ class _CustomCardState extends State<CustomCard> {
                         )
                       : CustomButton(
                           type: ButtonType.primary,
-                          background: widget.colorButton2,
+
                           widthButton: 115,
                           heightButton: 40,
                           borderRadius: 10,
@@ -203,7 +199,6 @@ class _CustomCardState extends State<CustomCard> {
                   SizedBox(width: 30),
                   CustomButton(
                     type: ButtonType.primary,
-                    background: widget.colorButton1,
                     widthButton: 115,
                     heightButton: 40,
                     borderRadius: 10,

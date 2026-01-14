@@ -16,7 +16,6 @@ class CustomModal {
     required String content2Modal, // Примерный расход
     required String textButton, // Текст для кнопки
     required Color backgroundColor, // Фон окна
-    required Color colorButton, // Цвет кнопки
     required double radiusLeft, // Левое закругление
     required double radiusRight, // Правое закругление
     required double paddingModal, // Внутренние отступы
@@ -80,7 +79,6 @@ class CustomModal {
             Center(
               child: CustomButton(
                 type: ButtonType.primary,
-                background: colorButton,
                 widthButton: 335,
                 heightButton: 56,
                 borderRadius: 8,

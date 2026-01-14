@@ -9,7 +9,6 @@ enum ButtonType { primary, inactive, secondary, tetriary, cart, login, chips }
 
 class CustomButton extends StatefulWidget {
   final ButtonType type; // Тип кнопки
-  final Color background; // Цвет кнопки
   final double widthButton; // Ширина кнопки
   final double heightButton; // Высота кнопки
   final double borderRadius; // Закругление кнопки
@@ -36,7 +35,6 @@ class CustomButton extends StatefulWidget {
     this.price,
     this.iconButton,
     this.isSelected = false,
-    required this.background,
   });
 
   @override
@@ -44,13 +42,13 @@ class CustomButton extends StatefulWidget {
 }
 
 class _CustomButtonState extends State<CustomButton> {
-  // Color _getColor() {
-  //   if (widget.type == ButtonType.primary) return accent;
-  //   if (widget.type == ButtonType.inactive) return accent_inactive;
-  //   if (widget.type == ButtonType.secondary) return white;
-  //   if (widget.type == ButtonType.cart) return accent;
-  //   return input_bg;
-  // }
+  Color _getColor() {
+    if (widget.type == ButtonType.primary) return accent;
+    if (widget.type == ButtonType.inactive) return accent_inactive;
+    if (widget.type == ButtonType.secondary) return white;
+    if (widget.type == ButtonType.cart) return accent;
+    return input_bg;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -65,7 +63,7 @@ class _CustomButtonState extends State<CustomButton> {
           minimumSize: Size(widget.widthButton, widget.heightButton),
           fixedSize: Size(widget.widthButton, widget.heightButton),
           elevation: widget.elevationButton,
-          backgroundColor: widget.background,
+          backgroundColor: _getColor(),
           enableFeedback: true,
         ),
         onPressed: widget.onPressed,
@@ -130,7 +128,7 @@ class _CustomButtonState extends State<CustomButton> {
           minimumSize: Size(widget.widthButton, widget.heightButton),
           fixedSize: Size(widget.widthButton, widget.heightButton),
           elevation: widget.elevationButton,
-          backgroundColor: widget.background,
+          backgroundColor: white,
           enableFeedback: true,
           side: BorderSide(color: input_stroke),
         ),
@@ -172,7 +170,7 @@ class _CustomButtonState extends State<CustomButton> {
               ? BorderSide(color: accent, width: 1.5)
               : BorderSide.none,
           elevation: widget.elevationButton,
-          backgroundColor: widget.background,
+          backgroundColor: _getColor(),
           enableFeedback: true,
         ),
         onPressed: widget.onPressed,
