@@ -26,7 +26,7 @@ class CustomIcon extends StatelessWidget {
         pathIcon,
         height: heightIcon,
         width: widthIcon,
-        color: colorIcon!,
+        color: colorIcon,
       ),
     );
   }
