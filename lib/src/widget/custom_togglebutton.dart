@@ -6,9 +6,9 @@ class CustomToggleButton extends StatefulWidget {
   final double widthToggle; // Ширина кнопки-переключателя
   final double heightToggle; // Высота кнопки-переключателя
   final double sizeToggle; // Размер переключателя
-  final int colorToggle; // Цвет перелючателя
-  final int colorActive; // Цвет активной кнопки-переключателя
-  final int colorInactive; // Цвет отключенной кнопки-переключателя
+  final Color colorToggle; // Цвет перелючателя
+  final Color colorActive; // Цвет активной кнопки-переключателя
+  final Color colorInactive; // Цвет отключенной кнопки-переключателя
   final bool initialValue;
 
   const CustomToggleButton({
@@ -40,9 +40,9 @@ class _CustomToggleButtonState extends State<CustomToggleButton> {
     return FlutterSwitch(
       width: widget.widthToggle,
       height: widget.heightToggle,
-      activeColor: Color(widget.colorActive),
-      inactiveColor: Color(widget.colorInactive),
-      toggleColor: Color(widget.colorToggle),
+      activeColor: widget.colorActive,
+      inactiveColor: widget.colorInactive,
+      toggleColor: widget.colorToggle,
       value: _value,
       onToggle: (bool value) {
         setState(() {
