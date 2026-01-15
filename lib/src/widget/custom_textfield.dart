@@ -15,7 +15,6 @@ class CustomTextField extends StatefulWidget {
   final double borderRadius; // Закругление
   final Color borderColor; // Цвет границ
   final Color focusColor; // Цвет границ при фокусе
-  final Color errorColor; // Цвет при ошибке
   final Color cursorColor; // Цвет курсора
   final String hintText; // Текст поля
   final String title; // Заголовок
@@ -33,7 +32,6 @@ class CustomTextField extends StatefulWidget {
     required this.paddingTitle,
     required this.paddingTextField,
     required this.color,
-    required this.errorColor,
     required this.borderColor,
     required this.focusColor,
     required this.cursorColor,
