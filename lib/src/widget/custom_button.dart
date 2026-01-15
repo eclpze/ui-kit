@@ -9,7 +9,7 @@ enum ButtonType { primary, inactive, secondary, tetriary, cart, login, chips }
 
 class CustomButton extends StatefulWidget {
   final ButtonType type; // Тип кнопки
-  final Color background; //
+  final Color? background; //
   final double widthButton; // Ширина кнопки
   final double heightButton; // Высота кнопки
   final double borderRadius; // Закругление кнопки
@@ -35,7 +35,7 @@ class CustomButton extends StatefulWidget {
     required this.onPressed,
     this.price,
     this.iconButton,
-    this.isSelected = false, required this.background,
+    this.isSelected = false, this.background,
   });
 
   @override
