@@ -106,7 +106,7 @@ class _CustomButtonState extends State<CustomButton> {
           minimumSize: Size(widget.widthButton, widget.heightButton),
           enableFeedback: true,
           elevation: widget.elevationButton,
-          backgroundColor: widget.isSelected! ? widget.background : input_bg,
+          backgroundColor: widget.background,
         ),
         child: Text(
           widget.textButton,
@@ -114,7 +114,7 @@ class _CustomButtonState extends State<CustomButton> {
           style: GoogleFonts.roboto(
             fontSize: widget.fontSize,
             fontWeight: widget.fontWeight,
-            color: widget.isSelected! ? widget.colorText : description,
+            color: widget.colorText,
           ),
         ),
       );
