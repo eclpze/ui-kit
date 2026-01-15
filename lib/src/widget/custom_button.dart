@@ -9,8 +9,8 @@ enum ButtonType { primary, inactive, secondary, tetriary, cart, login, chips }
 
 class CustomButton extends StatefulWidget {
   final ButtonType type; // Тип кнопки
-  final Color? background; // Цвет текста
-  final Color? colorText; //
+  final Color? background; // Цвет кнопки
+  final Color? colorText; // Цвет текста
   final double widthButton; // Ширина кнопки
   final double heightButton; // Высота кнопки
   final double borderRadius; // Закругление кнопки

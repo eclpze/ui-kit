@@ -26,6 +26,7 @@ class CustomCard extends StatefulWidget {
   final VoidCallback? onPlus; // Действие при нажатии на плюс
   final VoidCallback? onMinus; // Действие при нажатии на минус
   final double paddingCard; // Внутренние отступы
+  final bool? inCart; //
 
   const CustomCard({
     super.key,
@@ -45,6 +46,7 @@ class CustomCard extends StatefulWidget {
     this.day,
     this.secondaryText,
     this.secondaryPressed,
+    this.inCart,
   });
 
   @override
@@ -52,8 +54,6 @@ class CustomCard extends StatefulWidget {
 }
 
 class _CustomCardState extends State<CustomCard> {
-  bool _inCart = false;
-
   @override
   Widget build(BuildContext context) {
     if (widget.type == CardType.primary) {
@@ -83,10 +83,9 @@ class _CustomCardState extends State<CustomCard> {
                     ],
                   ),
                   Spacer(),
-                  _inCart
+                  widget.inCart!
                       ? CustomButton(
                           type: ButtonType.secondary,
-
                           widthButton: 115,
                           heightButton: 40,
                           borderRadius: 10,
@@ -94,16 +93,10 @@ class _CustomCardState extends State<CustomCard> {
                           textButton: widget.secondaryText!,
                           fontWeight: FontWeight.w700,
                           fontSize: 14,
-                          onPressed: () {
-                            setState(() {
-                              _inCart = false;
-                            });
-                            widget.secondaryPressed!;
-                          },
+                          onPressed: widget.secondaryPressed!,
                         )
                       : CustomButton(
                           type: ButtonType.primary,
-
                           widthButton: 115,
                           heightButton: 40,
                           borderRadius: 10,
@@ -111,12 +104,7 @@ class _CustomCardState extends State<CustomCard> {
                           textButton: widget.textButton!,
                           fontWeight: FontWeight.w700,
                           fontSize: 14,
-                          onPressed: () {
-                            setState(() {
-                              _inCart = true;
-                            });
-                            widget.onPressed!;
-                          },
+                          onPressed: widget.onPressed!,
                         ),
                 ],
               ),
@@ -125,6 +113,7 @@ class _CustomCardState extends State<CustomCard> {
         ),
       );
     }
+
     if (widget.type == CardType.cart) {
       return Card(
         color: widget.colorCard,
