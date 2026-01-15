@@ -8,6 +8,7 @@ class CustomTabBar extends StatefulWidget {
   final List<String> titles; // Список разделов
   final List<String> icons; // Список иконок
   final VoidCallback onPressed; // Действие при нажатии
+  final int selectedIndex; //
 
   const CustomTabBar({
     super.key,
@@ -15,6 +16,7 @@ class CustomTabBar extends StatefulWidget {
     required this.onPressed,
     required this.titles,
     required this.icons,
+    required this.selectedIndex,
   });
 
   @override
@@ -22,16 +24,11 @@ class CustomTabBar extends StatefulWidget {
 }
 
 class _CustomTabBarState extends State<CustomTabBar> {
-  int _selectedIndex = 0;
-
   @override
   Widget build(BuildContext context) {
     return BottomNavigationBar(
-      currentIndex: _selectedIndex,
+      currentIndex: widget.selectedIndex,
       onTap: (index) {
-        setState(() {
-          _selectedIndex = index;
-        });
         widget.onPressed;
       },
       backgroundColor: widget.color,
@@ -46,7 +43,7 @@ class _CustomTabBarState extends State<CustomTabBar> {
           icon: Image.asset(
             widget.icons[index],
             width: 24,
-            color: _selectedIndex == index ? accent : color_icons,
+            color: widget.selectedIndex == index ? accent : color_icons,
           ),
           label: widget.titles[index],
         ),
