@@ -83,29 +83,23 @@ class _CustomCardState extends State<CustomCard> {
                     ],
                   ),
                   Spacer(),
-                  widget.inCart!
-                      ? CustomButton(
-                          type: ButtonType.secondary,
-                          widthButton: 115,
-                          heightButton: 40,
-                          borderRadius: 10,
-                          elevationButton: 0,
-                          textButton: widget.secondaryText!,
-                          fontWeight: FontWeight.w700,
-                          fontSize: 14,
-                          onPressed: widget.secondaryPressed!,
-                        )
-                      : CustomButton(
-                          type: ButtonType.primary,
-                          widthButton: 115,
-                          heightButton: 40,
-                          borderRadius: 10,
-                          elevationButton: 0,
-                          textButton: widget.textButton!,
-                          fontWeight: FontWeight.w700,
-                          fontSize: 14,
-                          onPressed: widget.onPressed!,
-                        ),
+                  CustomButton(
+                    type: widget.inCart!
+                        ? ButtonType.secondary
+                        : ButtonType.primary,
+                    widthButton: 115,
+                    heightButton: 40,
+                    borderRadius: 10,
+                    elevationButton: 0,
+                    textButton: widget.inCart!
+                        ? widget.secondaryText!
+                        : widget.textButton!,
+                    fontWeight: FontWeight.w700,
+                    fontSize: 14,
+                    onPressed: widget.inCart!
+                        ? widget.secondaryPressed!
+                        : widget.onPressed!,
+                  ),
                 ],
               ),
             ],
