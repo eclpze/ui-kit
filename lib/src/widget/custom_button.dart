@@ -46,7 +46,7 @@ class CustomButton extends StatefulWidget {
 class _CustomButtonState extends State<CustomButton> {
 
   Color _getColor() {
-    if (widget.type == ButtonType.primary && widget.type == ButtonType.cart) return accent;
+    if (widget.type == ButtonType.primary || widget.type == ButtonType.cart) return accent;
     if (widget.type == ButtonType.inactive) return accent_inactive;
     if (widget.type == ButtonType.secondary) return white;
     return input_bg;
