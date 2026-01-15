@@ -43,10 +43,10 @@ class CustomButton extends StatefulWidget {
 
 class _CustomButtonState extends State<CustomButton> {
   Color _getColor() {
-    if (widget.type == ButtonType.primary) return accent;
+    if (widget.type == ButtonType.primary && widget.type == ButtonType.cart) return accent;
     if (widget.type == ButtonType.inactive) return accent_inactive;
     if (widget.type == ButtonType.secondary) return white;
-    if (widget.type == ButtonType.cart) return accent;
+    if (widget.type == ButtonType.chips && widget.isSelected == true) return accent;
     return input_bg;
   }
 
@@ -104,7 +104,7 @@ class _CustomButtonState extends State<CustomButton> {
           minimumSize: Size(widget.widthButton, widget.heightButton),
           enableFeedback: true,
           elevation: widget.elevationButton,
-          backgroundColor: widget.isSelected! ? accent : input_bg,
+          backgroundColor: _getColor(),
         ),
         child: Text(
           widget.textButton,
