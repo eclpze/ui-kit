@@ -7,7 +7,7 @@ class CustomTabBar extends StatefulWidget {
   final Color color; // Фон текстового поля
   final List<String> titles; // Список разделов
   final List<String> icons; // Список иконок
-  final VoidCallback onPressed; // Действие при нажатии
+  final ValueChanged<int> onPressed; // Действие при нажатии
   final int selectedIndex; //
 
   const CustomTabBar({
@@ -29,7 +29,7 @@ class _CustomTabBarState extends State<CustomTabBar> {
     return BottomNavigationBar(
       currentIndex: widget.selectedIndex,
       onTap: (index) {
-        widget.onPressed;
+        widget.onPressed(index);
       },
       backgroundColor: widget.color,
       type: BottomNavigationBarType.fixed,
