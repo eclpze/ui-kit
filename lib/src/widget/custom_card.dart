@@ -26,7 +26,7 @@ class CustomCard extends StatefulWidget {
   final VoidCallback? onPlus; // Действие при нажатии на плюс
   final VoidCallback? onMinus; // Действие при нажатии на минус
   final double paddingCard; // Внутренние отступы
-  final bool? inCart; //
+  final bool inCart; //
 
   const CustomCard({
     super.key,
@@ -46,7 +46,7 @@ class CustomCard extends StatefulWidget {
     this.day,
     this.secondaryText,
     this.secondaryPressed,
-    this.inCart,
+    required this.inCart,
   });
 
   @override
@@ -84,19 +84,19 @@ class _CustomCardState extends State<CustomCard> {
                   ),
                   Spacer(),
                   CustomButton(
-                    type: widget.inCart!
+                    type: widget.inCart
                         ? ButtonType.secondary
                         : ButtonType.primary,
                     widthButton: 115,
                     heightButton: 40,
                     borderRadius: 10,
                     elevationButton: 0,
-                    textButton: widget.inCart!
+                    textButton: widget.inCart
                         ? widget.secondaryText!
                         : widget.textButton!,
                     fontWeight: FontWeight.w700,
                     fontSize: 14,
-                    onPressed: widget.inCart!
+                    onPressed: widget.inCart
                         ? widget.secondaryPressed!
                         : widget.onPressed!,
                   ),
